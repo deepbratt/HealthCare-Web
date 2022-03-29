@@ -1,15 +1,15 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
 interface ILayoutProps {
-  children: React.ReactNode;
 }
 
-const Layout: React.FC<ILayoutProps> = ({ children }) => {
+const Layout: React.FC<ILayoutProps> = () => {
   return (
     <>
       <Header />
-      {children}
+      <Outlet />
     </>
   );
 };
