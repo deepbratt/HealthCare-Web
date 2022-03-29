@@ -1,3 +1,22 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # Logs
 logs
 *.log
@@ -40,6 +59,9 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
+
 
 # TypeScript v1 declaration files
 typings/
