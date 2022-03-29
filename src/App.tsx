@@ -1,10 +1,13 @@
 import React from 'react';
+import { UserProvider } from './context/UserContext';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <UserProvider>
+      <div className="App">
+        <h1>HealthCare App</h1>
+      </div>
+    </UserProvider>
   );
 }
 
