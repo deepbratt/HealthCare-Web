@@ -7,7 +7,7 @@ const PrivateRoutes = () => {
   const location = useLocation();
   // TODO: Add logic to check if user is logged in
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   return isLoggedIn ? (
     <Outlet />
   ) : (

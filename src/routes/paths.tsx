@@ -1,11 +1,15 @@
+import UsersPage from "../pages/users";
+
 export const paths = {
-  dashboard: '/',
-  login: '/login',
-  error: '*'
+  dashboard: "/",
+  users: "/users",
+  login: "/login",
+  error: "*",
 };
 
 export const routes = {
   dashboard: '/',
+  users: '/users',
   login: '/login',
   error: '*'
 };
@@ -16,6 +20,11 @@ export const privateRoutes = {
     path: routes.dashboard,
     // TODO: UPDATE component later
     component: <h1>Dashboard</h1>,
+  },
+  [paths.users]: {
+    name: "Users",
+    path: routes.users,
+    component: <UsersPage />,
   },
 };
 
