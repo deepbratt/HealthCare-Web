@@ -1,12 +1,11 @@
 import React from 'react';
 import { UserProvider } from './context/UserContext';
+import RouteProvider from './routes/routes';
 
 const App: React.FC = () => {
   return (
     <UserProvider>
-      <div className="App">
-        <h1>HealthCare App</h1>
-      </div>
+      <RouteProvider />
     </UserProvider>
   );
 }
