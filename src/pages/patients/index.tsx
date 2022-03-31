@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import UserContext from "../../context/UserContext";
-import { Grid, Box, Typography, Stack, TextField, Autocomplete, InputAdornment, Button, styled, alpha } from "@mui/material";
+import PatientsListingTable from "../../sections/Patients/PatientsListingTable";
+import { Grid, Box, Stack, TextField, Autocomplete, InputAdornment, Button, styled, alpha } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import { Add } from "@mui/icons-material";
 
@@ -19,7 +20,7 @@ const PatientsPage: React.FC = () => {
   return (
     <Box>
       <Grid container sx={{ padding: '0 0 2rem', margin: '0.25rem auto' }}>
-        <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
           <Stack spacing={2} sx={{ width: 410, margin: '0.5rem auto' }}>
             <Autocomplete
               freeSolo
@@ -52,10 +53,15 @@ const PatientsPage: React.FC = () => {
             Advanced Search
           </Button>
         </Grid>
-        <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Grid item xs={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
           <Button variant="contained" endIcon={<Add />}>
             Add Patients
           </Button>
+        </Grid>
+      </Grid>
+      <Grid container spacing={1} justifyContent="center">
+        <Grid item xs={12} lg={10}>
+          <PatientsListingTable rowData={patientsData} />
         </Grid>
       </Grid>
     </Box>
