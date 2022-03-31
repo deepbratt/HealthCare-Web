@@ -11,7 +11,7 @@ import {INavItem, SECTIONS_DATA } from './NavBarSections';
 
 const Navbar : React.FC = () => {
   const [value, setValue] = React.useState(0);
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
