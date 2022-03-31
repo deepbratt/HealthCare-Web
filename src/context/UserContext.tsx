@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { IUserData, IUserContext } from '../utills/interfaces/user.interface'
+import { IUserData, IUserContext, IPatientsData } from '../utills/interfaces/user.interface'
 
 const UserContext = createContext<IUserContext>({})
 
@@ -29,9 +29,47 @@ export const UserProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
     setUserData(user) //This is a placeholder Data
   }, []);
 
+  // Sample data for saved patients
+  const patientsData: IPatientsData[] = [
+    {
+      _id: "41e6tg556sde",
+      mrNum: "MMC-163153",
+      firstName: "Anshuman",
+      lastName: "Aziz",
+      gender: "male",
+      phone: 3711659105,
+      dob: "19950811"
+    }, {
+      _id: "41e6tg5564f6esd",
+      mrNum: "MMC-1631798",
+      firstName: "Fatima",
+      lastName: "",
+      gender: "female",
+      phone: 3711659105,
+      dob: "19950811"
+    }, {
+      _id: "41e6tg5bsfk14",
+      mrNum: "MMC-163125",
+      firstName: "Jalaluddin",
+      lastName: "Arif",
+      gender: "male",
+      phone: 3711659105,
+      dob: "19950811"
+    }, {
+      _id: "4961g556sdefs45",
+      mrNum: "MMC-163146",
+      firstName: "Junaid",
+      lastName: "",
+      gender: "male",
+      phone: 3711659105,
+      dob: "19950811"
+    },
+  ]
+
 
   const userContextData: IUserContext = {
-    userData
+    userData,
+    patientsData
   }
 
   return (

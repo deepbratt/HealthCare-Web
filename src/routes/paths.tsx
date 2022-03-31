@@ -1,8 +1,10 @@
 import UsersPage from "../pages/users";
+import PatientsPage from "../pages/patients";
 
 export const paths = {
   dashboard: "/",
   users: "/users",
+  patients: "/patients",
   login: "/login",
   error: "*",
 };
@@ -10,6 +12,7 @@ export const paths = {
 export const routes = {
   dashboard: '/',
   users: '/users',
+  patients: "/patients",
   login: '/login',
   error: '*'
 };
@@ -25,6 +28,11 @@ export const privateRoutes = {
     name: "Users",
     path: routes.users,
     component: <UsersPage />,
+  },
+  [paths.patients]: {
+    name: "Patients",
+    path: routes.patients,
+    component: <PatientsPage />,
   },
 };
 
