@@ -5,6 +5,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import DoctorUser from "../../sections/DoctorUser";
+import StaffUser from "../../sections/StaffUser";
+import AdminUser from "../../sections/AdminUser";
+import AccountantUser from "../../sections/AccountantUser";
 //* Add data/utils import below this comment
 import { SECTIONS_DATA } from "./UsersSections";
 
@@ -63,16 +66,14 @@ const UsersPage: React.FC = () => {
             <DoctorUser />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            {/* // TODO: ADD STAFF USER HERE */}
-            <DoctorUser />
+            <StaffUser />
           </TabPanel>
-          <TabPanel value={value} index={1}>
-             {/* // TODO: ADD ADMIN USER HERE */}
-            <DoctorUser />
+          <TabPanel value={value} index={2}>
+            <AdminUser />
           </TabPanel>
-          <TabPanel value={value} index={1}>
-             {/* // TODO: ADD ACCOUNTANT USER HERE */}
-            <DoctorUser />
+          <TabPanel value={value} index={3}>
+            {/* // TODO: ADD ACCOUNTANT USER HERE */}
+            <AccountantUser />
           </TabPanel>
         </Box>
       </Grid>
