@@ -3,8 +3,8 @@ import Grid from "@mui/material/Grid";
 import { v4 as uuidv4 } from "uuid";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import DoctorUser from "../../sections/DoctorUser";
 //* Add data/utils import below this comment
 import { SECTIONS_DATA } from "./UsersSections";
 
@@ -21,23 +21,19 @@ function TabPanel(props: TabPanelProps) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
+      id={`users-tabpanel-${index}`}
+      aria-labelledby={`users-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }
 
 function a11yProps(index: number) {
   return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    id: `users-tab-${index}`,
+    "aria-controls": `users-tabpanel-${index}`,
   };
 }
 
@@ -64,13 +60,19 @@ const UsersPage: React.FC = () => {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            Item One
+            <DoctorUser />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Item Two
+            {/* // TODO: ADD STAFF USER HERE */}
+            <DoctorUser />
           </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
+          <TabPanel value={value} index={1}>
+             {/* // TODO: ADD ADMIN USER HERE */}
+            <DoctorUser />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+             {/* // TODO: ADD ACCOUNTANT USER HERE */}
+            <DoctorUser />
           </TabPanel>
         </Box>
       </Grid>

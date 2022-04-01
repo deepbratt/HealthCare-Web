@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { IUserData, IUserContext } from '../utills/interfaces/user.interface'
+import { IUserData, IUserContext } from '../utils/interfaces/user.interface'
 
 const UserContext = createContext<IUserContext>({})
 
