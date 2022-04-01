@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AgGridReact } from "ag-grid-react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -33,6 +34,7 @@ interface IPatientsTableProps {
 const PatientsListingTable: React.FC<IPatientsTableProps> = ({ rowData }) => {
 
   const [gridApi, setGridApi] = useState<GridApi>();
+  const navigate = useNavigate();
 
   function onGridReady(params: GridReadyEvent) {
     setGridApi(params.api)
@@ -54,6 +56,11 @@ const PatientsListingTable: React.FC<IPatientsTableProps> = ({ rowData }) => {
   };
   //* ADD TABLE CELLS HERE
   const [columnDefs] = useState([
+    {
+      field: "_id",
+      hide: true,
+      suppressToolPanel: true
+    },
     { field: "MR #" },
     { field: "Patient Name" },
     { field: "Gender" },
@@ -80,9 +87,10 @@ const PatientsListingTable: React.FC<IPatientsTableProps> = ({ rowData }) => {
           onGridReady={onGridReady}
           rowData={rowData?.map((patient) => (
             {
+              "_id": patient.mrNum,
               "MR #": patient.mrNum,
               "Patient Name": `${patient.firstName} ${patient.lastName}`,
-              "Gender": patient.gender,
+              "Gender": patient.gender.toLocaleUpperCase(),
               "Phone": patient.phone,
             }
           ))}
@@ -90,8 +98,8 @@ const PatientsListingTable: React.FC<IPatientsTableProps> = ({ rowData }) => {
           defaultColDef={defaultColDef}
           pagination={true}
           paginationPageSize={20}
-          rowSelection={"multiple"}
-          suppressRowClickSelection={false}
+          rowSelection={"single"}
+          onRowClicked={(e) => navigate(`/patient-details/${e.data._id}`)}
         />
       </div>
     </>
