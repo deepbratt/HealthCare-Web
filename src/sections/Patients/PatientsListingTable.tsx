@@ -87,7 +87,7 @@ const PatientsListingTable: React.FC<IPatientsTableProps> = ({ rowData }) => {
           onGridReady={onGridReady}
           rowData={rowData?.map((patient) => (
             {
-              "_id": patient.mrNum,
+              "_id": patient._id,
               "MR #": patient.mrNum,
               "Patient Name": `${patient.firstName} ${patient.lastName}`,
               "Gender": patient.gender.toLocaleUpperCase(),

@@ -10,7 +10,7 @@ const PatientDetails: React.FC = () => {
   return (
     <Grid container spacing={1} sx={{ padding: '0.5rem' }}>
       <Grid item xs={2}>
-        <Grid item xs={12} sx={{ border: '1px solid blue', height: '21rem', marginBottom: '1rem' }}>Patient Profile <br /> {id}</Grid>
+        <Grid item xs={12} sx={{ border: '1px solid blue', height: '21rem', marginBottom: '1rem' }}>Patient Profile <br />ID: {id}</Grid>
         <Grid item xs={12} sx={{ border: '1px solid blue', height: '21rem', marginBottom: '1rem' }}>Sidebar</Grid>
         <Grid item xs={12} sx={{ border: '1px solid blue', height: '14rem', marginBottom: '1rem' }}>Patient Follow Up</Grid>
       </Grid>
