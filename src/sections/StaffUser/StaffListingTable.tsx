@@ -5,8 +5,8 @@ import { DeleteRounded, EditRounded } from "@mui/icons-material";
 // ADD DATA/UTILS import below this comment
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import { IDoctor } from "../../utils/interfaces/doctor.interface";
-import {  ICellRendererParams } from "ag-grid-community";
+import { IStaff } from "../../utils/interfaces/staff.interface";
+import { ICellRendererParams } from "ag-grid-community";
 
 const ActionCellRenderer: React.FC<ICellRendererParams> = (props) => {
   const cellValue = props.data;
@@ -23,16 +23,14 @@ const ActionCellRenderer: React.FC<ICellRendererParams> = (props) => {
   );
 };
 
-interface IDoctorsTableProps {
-  rowData: IDoctor[];
+interface IStaffTableProps {
+  rowData: IStaff[];
 }
 
-const DoctorsListingTable: React.FC<IDoctorsTableProps> = ({ rowData }) => {
-
+const StaffListingTable: React.FC<IStaffTableProps> = ({ rowData }) => {
   //* ADD TABLE CELLS HERE
   const [columnDefs] = useState([
     { field: "name", headerCheckboxSelection: true, checkboxSelection: true },
-    { field: "type" },
     { field: "phone" },
     { field: "email" },
     { field: "lastSignedIn" },
@@ -45,4 +43,4 @@ const DoctorsListingTable: React.FC<IDoctorsTableProps> = ({ rowData }) => {
   return <ListingTable rowData={rowData} columnDefs={columnDefs} />;
 };
 
-export default DoctorsListingTable;
+export default StaffListingTable;
