@@ -1,4 +1,7 @@
 export const DOCTOR = "DOCTOR";
+export const STAFF = "STAFF";
+export const ADMIN = "ADMIN";
+export const ACCOUNTANT = "ACCOUNTANT";
 export const NAME = "DOCTOR NAME";
 export const TYPE = "TYPE";
 export const PHONE = "PHONE";
