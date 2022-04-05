@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import DoctorBiographyForm from './DoctorBiographyForm';
+import {DoctorFormContext} from '../../../context/DoctorFormContext';
 
 //* Add data/utils import below this comment
 import {
@@ -32,7 +34,7 @@ const steps = [
 ];
 
 const stepContent = [
-  <h1>{BIOGRAPHY}</h1>,
+  <DoctorBiographyForm />,
   <h1>
     {BIOGRAPHY} {DATA}
   </h1>,
@@ -42,30 +44,29 @@ const stepContent = [
   <h1>{FAQ}</h1>,
 ];
 
-const stepAction = [
-  () => {
-    console.log(BIOGRAPHY);
-  },
-  () => {
-    console.log(BIOGRAPHY + " " + DATA);
-  },
-  () => {
-    console.log(QUALIFICATION);
-  },
-  () => {
-    console.log(SERVICES);
-  },
-  () => {
-    console.log(TIMINGS);
-  },
-  () => {
-    console.log(FAQ);
-  },
-];
 
 const AddEditDoctorForm: React.FC = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set<number>());
+    const [activeStep, setActiveStep] = React.useState(0);
+    const [skipped, setSkipped] = React.useState(new Set<number>());
+    const {handleBiographySubmit} = useContext(DoctorFormContext);
+    const stepAction = [
+      handleBiographySubmit,
+      () => {
+        console.log(BIOGRAPHY + " " + DATA);
+      },
+      () => {
+        console.log(QUALIFICATION);
+      },
+      () => {
+        console.log(SERVICES);
+      },
+      () => {
+        console.log(TIMINGS);
+      },
+      () => {
+        console.log(FAQ);
+      },
+    ];
 
   const isStepOptional = (step: number) => {
     return step === 1;

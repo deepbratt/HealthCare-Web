@@ -1,4 +1,5 @@
 import UsersPage from "../pages/users";
+import DoctorFormContextProvider from "../context/DoctorFormContext";
 import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
 
 export const paths = {
@@ -32,7 +33,11 @@ export const privateRoutes = {
   [paths.addEditDoctor]: {
     name: "Add Edit Doctor",
     path: routes.addEditDoctor,
-    component: <AddEditDoctorForm />,
+    component: (
+      <DoctorFormContextProvider>
+        <AddEditDoctorForm />
+      </DoctorFormContextProvider>
+    ),
   },
 };
 
