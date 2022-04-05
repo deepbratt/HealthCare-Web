@@ -4,24 +4,17 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import DialogBox from '../../components/Modal/DialogBox';
 import InputAdornment from "@mui/material/InputAdornment";
 import DoctorsListingTable from './DoctorsListingTable';
 import { SearchRounded } from '@mui/icons-material';
 //* Add data/utils import below this comment
 import { IDoctor } from '../../utils/interfaces/doctor.interface';
 import { ADD, DOCTOR } from '../../utils/langauge/en/buttonLabels';
+import { useNavigate } from 'react-router-dom';
+import { paths } from '../../routes/paths';
 
 const DoctorUser: React.FC = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const navigate = useNavigate();
 
   const [rowData] = useState<IDoctor[]>([
     {
@@ -91,7 +84,11 @@ const DoctorUser: React.FC = () => {
             justifyContent="flex-end"
             alignContent="center"
           >
-            <Button size="small" variant="contained" onClick={handleClickOpen}>
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => navigate(paths.addEditDoctor)}
+            >
               {ADD + " " + DOCTOR}
             </Button>
           </Grid>
@@ -100,14 +97,6 @@ const DoctorUser: React.FC = () => {
           <DoctorsListingTable rowData={rowData} />
         </Grid>
       </Grid>
-      <DialogBox
-        open={open}
-        handleClose={handleClose}
-        title={`${ADD} ${DOCTOR}`}
-      >
-        {/* // TODO: ADD DOCTOR FORM HERE  */}
-        <h1>Add New Doctor Form Here</h1>
-      </DialogBox>
     </Box>
   );
 }

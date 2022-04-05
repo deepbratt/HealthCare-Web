@@ -1,17 +1,20 @@
 import UsersPage from "../pages/users";
+import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
 
 export const paths = {
   dashboard: "/",
   users: "/users",
+  addEditDoctor: "/add-edit-doctor/",
   login: "/login",
   error: "*",
 };
 
 export const routes = {
-  dashboard: '/',
-  users: '/users',
-  login: '/login',
-  error: '*'
+  dashboard: "/",
+  users: "/users",
+  addEditDoctor: "/add-edit-doctor/",
+  login: "/login",
+  error: "*",
 };
 
 export const privateRoutes = {
@@ -25,6 +28,11 @@ export const privateRoutes = {
     name: "Users",
     path: routes.users,
     component: <UsersPage />,
+  },
+  [paths.addEditDoctor]: {
+    name: "Add Edit Doctor",
+    path: routes.addEditDoctor,
+    component: <AddEditDoctorForm />,
   },
 };
 
