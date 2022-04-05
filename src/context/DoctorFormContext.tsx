@@ -5,6 +5,9 @@ interface IDoctorFormValues {
     phone: string;
     email: string;
     gender: string;
+    password: string;
+    consultationFee: string;
+    sharePrice: string;
     role: string[];
 }
 interface IDoctorContextState {
@@ -20,6 +23,9 @@ const defaultState: IDoctorContextState = {
     phone: "",
     email: "",
     gender: "male",
+    password: "",
+    consultationFee: "",
+    sharePrice: "",
     role: [],
   },
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
