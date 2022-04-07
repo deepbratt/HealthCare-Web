@@ -11,3 +11,16 @@ export const ACTIONS = "ACTIONS";
 export const PRINT = "PRINT";
 export const ADD = "ADD";
 export const CANCEL = "CANCEL";
+export const BIOGRAPHY = "BIOGRAPHY";
+export const DATA = "DATA";
+export const QUALIFICATION = "QUALIFICATION";
+export const SERVICES = "SERVICES";
+export const TIMINGS = "TIMINGS";
+export const FAQ = "FAQ";
+export const BACK = "BACK";
+export const SKIP = "SKIP";
+export const RESET = "RESET";
+export const OPTIONAL = "OPTIONAL";
+export const FINISH = "FINISH";
+export const NEXT = "NEXT";
+
