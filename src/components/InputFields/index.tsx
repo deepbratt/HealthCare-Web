@@ -8,9 +8,9 @@ const InputField: React.FC<TextFieldProps> = (props) => {
     name,
     variant,
     size,
-    error = null,
     onChange,
   } = props;
+
   return (
     <TextField
       placeholder={placeholder}
@@ -20,7 +20,6 @@ const InputField: React.FC<TextFieldProps> = (props) => {
       fullWidth={fullWidth}
       size={size}
       onChange={onChange}
-      {...(error && { error: true, helperText: error })}
       {...props}
     />
   );
