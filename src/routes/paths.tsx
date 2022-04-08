@@ -1,12 +1,15 @@
 import UsersPage from "../pages/users";
 import PatientsPage from "../pages/patients";
 import PatientDetails from "../pages/patientDetails";
+import DoctorFormContextProvider from "../context/DoctorFormContext";
+import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
 
 export const paths = {
   dashboard: "/",
   users: "/users",
   patients: "/patients",
   patientDetails: "/patient-details",
+  addEditDoctor: "/add-edit-doctor/",
   login: "/login",
   error: "*",
 };
@@ -16,8 +19,9 @@ export const routes = {
   users: '/users',
   patients: "/patients",
   patientDetails: "/patient-details/:id",
+  addEditDoctor: "/add-edit-doctor/",
   login: '/login',
-  error: '*'
+  error: '*',
 };
 
 export const privateRoutes = {
@@ -41,6 +45,15 @@ export const privateRoutes = {
     name: "Patient Details",
     path: routes.patientDetails,
     component: <PatientDetails />,
+  },
+  [paths.addEditDoctor]: {
+    name: "Add Edit Doctor",
+    path: routes.addEditDoctor,
+    component: (
+      <DoctorFormContextProvider>
+        <AddEditDoctorForm />
+      </DoctorFormContextProvider>
+    ),
   },
 };
 
