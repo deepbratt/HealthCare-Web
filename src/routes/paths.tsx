@@ -1,11 +1,17 @@
 import UsersPage from "../pages/users";
-import DoctorFormContextProvider from "../context/DoctorFormContext";
+import UserFormContextProvider from "../context/UserFormContext";
 import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
+import AddEditStaffForm from "../sections/StaffUser/AddEditStaffForm";
+import AddEditAdminForm from "../sections/AdminUser/AddEditAdminForm";
+import AddEditAccountantForm from "../sections/AccountantUser/AddEditAccountantForm";
 
 export const paths = {
   dashboard: "/",
   users: "/users",
   addEditDoctor: "/add-edit-doctor/",
+  addEditStaff: "/add-edit-staff/",
+  addEditAdmin: "/add-edit-admin/",
+  addEditAccountant: "/add-edit-accountant/",
   login: "/login",
   error: "*",
 };
@@ -14,6 +20,9 @@ export const routes = {
   dashboard: "/",
   users: "/users",
   addEditDoctor: "/add-edit-doctor/",
+  addEditStaff: "/add-edit-staff/",
+  addEditAdmin: "/add-edit-admin/",
+  addEditAccountant: "/add-edit-accountant/",
   login: "/login",
   error: "*",
 };
@@ -34,9 +43,36 @@ export const privateRoutes = {
     name: "Add Edit Doctor",
     path: routes.addEditDoctor,
     component: (
-      <DoctorFormContextProvider>
+      <UserFormContextProvider>
         <AddEditDoctorForm />
-      </DoctorFormContextProvider>
+      </UserFormContextProvider>
+    ),
+  },
+  [paths.addEditStaff]: {
+    name: "Add Edit Staff",
+    path: routes.addEditStaff,
+    component: (
+      <UserFormContextProvider>
+        <AddEditStaffForm />
+      </UserFormContextProvider>
+    ),
+  },
+  [paths.addEditAdmin]: {
+    name: "Add Edit Admin",
+    path: routes.addEditAdmin,
+    component: (
+      <UserFormContextProvider>
+        <AddEditAdminForm />
+      </UserFormContextProvider>
+    ),
+  },
+  [paths.addEditAccountant]: {
+    name: "Add Edit Accountant",
+    path: routes.addEditAccountant,
+    component: (
+      <UserFormContextProvider>
+        <AddEditAccountantForm />
+      </UserFormContextProvider>
     ),
   },
 };

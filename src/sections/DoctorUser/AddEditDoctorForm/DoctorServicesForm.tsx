@@ -6,14 +6,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import InputField from "../../../components/InputFields";
 import { AddRounded } from "@mui/icons-material";
-import { DoctorFormContext } from "../../../context/DoctorFormContext";
+import { UserFormContext } from "../../../context/UserFormContext";
 //* Add data/utils import below this comment
 import { ADD, SERVICES } from "../../../utils/langauge/en/buttonLabels";
 import { fieldNames } from "../../../utils/constants/formConstants";
 
 const DoctorQualificationForm: React.FC = () => {
   const { values, handleDynamicInputChange, handleAddNewItem } =
-    useContext(DoctorFormContext);
+    useContext(UserFormContext);
   return (
     <Box sx={{ margin: "50px" }}>
       <Grid container spacing={2} justifyContent="center">

@@ -3,13 +3,13 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import InputField from "../../../components/InputFields";
-import { DoctorFormContext } from "../../../context/DoctorFormContext";
+import { UserFormContext } from "../../../context/UserFormContext";
 //* Add data/utils import below this comment
 import { DOCTOR, PROFESSIONAL_STATEMENT } from "../../../utils/langauge/en/buttonLabels";
 import { fieldNames } from "../../../utils/constants/formConstants";
 
 const DoctorProfessionalStatementForm: React.FC = () => {
-  const { values, errors, handleInputChange } = useContext(DoctorFormContext);
+  const { values, errors, handleInputChange } = useContext(UserFormContext);
   return (
     <Box sx={{ margin: "50px" }}>
       <Grid container spacing={2} justifyContent="center">
