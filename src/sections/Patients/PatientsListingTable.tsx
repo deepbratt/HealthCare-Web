@@ -45,7 +45,9 @@ const PatientsListingTable: React.FC<IPatientsTableProps> = ({ patientsData }) =
     },
     {
       headerName: "MR #",
-      field: "mrNum"
+      field: "mrNum",
+      headerCheckboxSelection: true,
+      checkboxSelection: true
     },
     {
       headerName: "Patient Name",
