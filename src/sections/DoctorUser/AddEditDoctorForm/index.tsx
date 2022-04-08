@@ -6,6 +6,10 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import DoctorBiographyForm from './DoctorBiographyForm';
+import DoctorQualificationForm from './DoctorQualificationForm';
+import DoctorServicesForm from './DoctorServicesForm';
+import DoctorTimingForm from './DoctorTimingTable';
+import DoctorFAQForm from './DoctorFAQForm';
 import {DoctorFormContext} from '../../../context/DoctorFormContext';
 
 //* Add data/utils import below this comment
@@ -22,11 +26,13 @@ import {
   SERVICES,
   TIMINGS,
   FAQ,
+  PROFESSIONAL_STATEMENT,
 } from "../../../utils/langauge/en/buttonLabels";
+import DoctorProfessionalStatementForm from './DoctorProfessionalStatement';
 
 const steps = [
   BIOGRAPHY,
-  BIOGRAPHY + " " + DATA,
+  PROFESSIONAL_STATEMENT,
   QUALIFICATION,
   SERVICES,
   TIMINGS,
@@ -35,13 +41,11 @@ const steps = [
 
 const stepContent = [
   <DoctorBiographyForm />,
-  <h1>
-    {BIOGRAPHY} {DATA}
-  </h1>,
-  <h1>{QUALIFICATION}</h1>,
-  <h1>{SERVICES}</h1>,
-  <h1>{TIMINGS}</h1>,
-  <h1>{FAQ}</h1>,
+  <DoctorProfessionalStatementForm />,
+  <DoctorQualificationForm />,
+  <DoctorServicesForm />,
+  <DoctorTimingForm />,
+  <DoctorFAQForm />,
 ];
 
 
@@ -68,8 +72,10 @@ const AddEditDoctorForm: React.FC = () => {
       },
     ];
 
+  //* verify if step is optional
+  //* @param {number} step - the step number
   const isStepOptional = (step: number) => {
-    return step === 1;
+    return false;
   };
 
   const isStepSkipped = (step: number) => {

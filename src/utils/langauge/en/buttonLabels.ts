@@ -12,6 +12,7 @@ export const PRINT = "PRINT";
 export const ADD = "ADD";
 export const CANCEL = "CANCEL";
 export const BIOGRAPHY = "BIOGRAPHY";
+export const PROFESSIONAL_STATEMENT = "PROFESSIONAL STATEMENT";
 export const DATA = "DATA";
 export const QUALIFICATION = "QUALIFICATION";
 export const SERVICES = "SERVICES";
