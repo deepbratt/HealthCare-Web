@@ -40,23 +40,23 @@ const PatientDetails: React.FC = () => {
   const sidebarMenu = [
     {
       title: 'Edit Profile',
-      path: '/'
+      path: `/patient/edit-profile/${id}`
     },
     {
       title: 'Add Invoice',
-      path: '/'
+      path: `/patient/add-invoice/${id}`
     },
     {
       title: 'Add Token',
-      path: '/'
+      path: `/patient/add-token/${id}`
     },
     {
       title: 'Add File',
-      path: '/'
+      path: `/patient/add-file/${id}`
     },
     {
       title: 'Invoice History',
-      path: '/'
+      path: `/patient/invoice-history/${id}`
     }
   ]
 
@@ -119,7 +119,7 @@ const PatientDetails: React.FC = () => {
           content="Not Available."
           minHeight="14rem"
         />
-      </Grid>
+      </Grid>      
     </Grid>
   );
 };
