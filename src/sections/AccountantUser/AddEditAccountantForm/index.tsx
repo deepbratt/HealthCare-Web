@@ -5,11 +5,8 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import DoctorBiographyForm from './DoctorBiographyForm';
-import DoctorQualificationForm from './DoctorQualificationForm';
-import DoctorServicesForm from './DoctorServicesForm';
-import DoctorTimingForm from './DoctorTimingTable';
-import DoctorFAQForm from './DoctorFAQForm';
+import AccountantBiographyForm from './AccountantBiographyForm';
+import AccountantFAQForm from './AccountantFAQForm';
 import {UserFormContext} from '../../../context/UserFormContext';
 
 //* Add data/utils import below this comment
@@ -21,52 +18,26 @@ import {
   RESET,
   OPTIONAL,
   BIOGRAPHY,
-  DATA,
-  QUALIFICATION,
-  SERVICES,
-  TIMINGS,
   FAQ,
-  PROFESSIONAL_STATEMENT,
 } from "../../../utils/langauge/en/buttonLabels";
-import DoctorProfessionalStatementForm from './DoctorProfessionalStatement';
 
 const steps = [
   BIOGRAPHY,
-  PROFESSIONAL_STATEMENT,
-  QUALIFICATION,
-  SERVICES,
-  TIMINGS,
   FAQ,
 ];
 
 const stepContent = [
-  <DoctorBiographyForm />,
-  <DoctorProfessionalStatementForm />,
-  <DoctorQualificationForm />,
-  <DoctorServicesForm />,
-  <DoctorTimingForm />,
-  <DoctorFAQForm />,
+  <AccountantBiographyForm />,
+  <AccountantFAQForm />,
 ];
 
 
-const AddEditDoctorForm: React.FC = () => {
+const AddEditAccountantForm: React.FC = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set<number>());
     const {handleBiographySubmit} = useContext(UserFormContext);
     const stepAction = [
       handleBiographySubmit,
-      () => {
-        console.log(BIOGRAPHY + " " + DATA);
-      },
-      () => {
-        console.log(QUALIFICATION);
-      },
-      () => {
-        console.log(SERVICES);
-      },
-      () => {
-        console.log(TIMINGS);
-      },
       () => {
         console.log(FAQ);
       },
@@ -182,4 +153,4 @@ const AddEditDoctorForm: React.FC = () => {
   );
 }
 
-export default AddEditDoctorForm;
+export default AddEditAccountantForm;

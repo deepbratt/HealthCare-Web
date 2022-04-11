@@ -17,6 +17,7 @@ export const fieldNames = {
   type: "type",
   role: "role",
   consultationFee: "consultationFee",
+  discount: "discount",
   sharePrice: "sharePrice",
   awards: "awards",
   expertise: "expertise",
