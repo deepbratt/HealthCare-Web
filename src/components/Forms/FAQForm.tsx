@@ -4,14 +4,14 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import InputField from "../../../components/InputFields";
+import InputField from "../InputFields";
 import { AddRounded } from "@mui/icons-material";
-import { UserFormContext } from "../../../context/UserFormContext";
+import { UserFormContext } from "../../context/UserFormContext";
 //* Add data/utils import below this comment
-import { ADD, FAQ } from "../../../utils/langauge/en/buttonLabels";
-import { fieldNames } from "../../../utils/constants/formConstants";
+import { ADD, FAQ } from "../../utils/langauge/en/buttonLabels";
+import { fieldNames } from "../../utils/constants/formConstants";
 
-const DoctorFAQForm: React.FC = () => {
+const FAQForm: React.FC = () => {
   const { values, handleDynamicInputChange, handleAddNewItem } = useContext(UserFormContext);
   return (
     <Box sx={{ margin: "50px" }}>
@@ -26,7 +26,7 @@ const DoctorFAQForm: React.FC = () => {
             <React.Fragment key={uuidv4()}>
               <Grid item xs={12} lg={10}>
                 <InputField
-                  id={`doc-faq-${index}`}
+                  id={`faq-${index}`}
                   label={`Question ${index + 1}`}
                   name={fieldNames.answer}
                   value={values.faqs[index].question}
@@ -37,7 +37,7 @@ const DoctorFAQForm: React.FC = () => {
               </Grid>
               <Grid item xs={12} lg={10}>
                 <InputField
-                  id={`doc-faq-${index}`}
+                  id={`faq-${index}`}
                   label={`Answer ${index + 1}`}
                   name={fieldNames.question}
                   value={values.faqs[index].answer}
@@ -63,4 +63,4 @@ const DoctorFAQForm: React.FC = () => {
   );
 };
 
-export default DoctorFAQForm;
+export default FAQForm;
