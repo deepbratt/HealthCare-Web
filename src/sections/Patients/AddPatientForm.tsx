@@ -26,6 +26,15 @@ const AddPatientForm: React.FC = () => {
     })
   }
 
+  const handleDateChange = (newValue: string | null) => {    
+    setNewPatient({
+      ...newPatient,
+      dob: newValue!
+    })
+  }
+
+  const handleSubmit = () => console.log(newPatient);
+
   return (
     <Box
       component="form"
@@ -73,9 +82,7 @@ const AddPatientForm: React.FC = () => {
             <DatePicker
               label="Date Of Birth"
               value={newPatient.dob}
-              onChange={(newValue) => {
-                console.log(newValue);
-              }}
+              onChange={handleDateChange}
               renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
@@ -105,6 +112,7 @@ const AddPatientForm: React.FC = () => {
         >
           <Button
             variant="contained"
+            onClick={handleSubmit}
           >
             ADD PATIENT
           </Button>
