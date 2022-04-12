@@ -1,28 +1,22 @@
 import React, {useState} from 'react';
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from 'react-router-dom';
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import DialogBox from '../../components/Modal/DialogBox';
 import InputAdornment from "@mui/material/InputAdornment";
 import StaffsListingTable from './StaffListingTable';
 import { SearchRounded } from '@mui/icons-material';
 //* Add data/utils import below this comment
 import { IStaff } from '../../utils/interfaces/staff.interface';
 import { ADD, STAFF } from '../../utils/langauge/en/buttonLabels';
+import { paths } from '../../routes/paths';
 
 const StaffUser: React.FC = () => {
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+  const navigate = useNavigate();
+ 
   const [rowData] = useState<IStaff[]>([
     {
       _id: uuidv4(),
@@ -87,7 +81,11 @@ const StaffUser: React.FC = () => {
             justifyContent="flex-end"
             alignContent="center"
           >
-            <Button size="small" variant="contained" onClick={handleClickOpen}>
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => navigate(paths.addEditStaff)}
+            >
               {ADD + " " + STAFF}
             </Button>
           </Grid>
@@ -96,14 +94,6 @@ const StaffUser: React.FC = () => {
           <StaffsListingTable rowData={rowData} />
         </Grid>
       </Grid>
-      <DialogBox
-        open={open}
-        handleClose={handleClose}
-        title={`${ADD} ${STAFF}`}
-      >
-        {/* // TODO: ADD STAFF FORM HERE  */}
-        <h1>Add New Staff Form Here</h1>
-      </DialogBox>
     </Box>
   );
 }

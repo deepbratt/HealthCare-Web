@@ -10,7 +10,7 @@ export interface IDoctorTimings {
   available: boolean;
 } 
 
-interface IDoctorFormValues {
+export interface IUserFormValues {
   [k: string]: any;
   name: string;
   phone: string;
@@ -18,6 +18,7 @@ interface IDoctorFormValues {
   gender: string;
   password: string;
   consultationFee: string;
+  discount: string;
   sharePrice: string;
   awards: string;
   expertise: string;
@@ -29,13 +30,15 @@ interface IDoctorFormValues {
   faqs: { question: string; answer: string }[];
   role: string[];
 }
-interface IDoctorFormErrors {
+
+export interface IUserFormErrors {
     name: string;
     phone: string;
     email: string;
     gender: string;
     password: string;
     consultationFee: string;
+    discount: string;
     sharePrice: string;
     awards: string;
     expertise: string;
@@ -47,8 +50,8 @@ interface IDoctorFormErrors {
     role: string;
 }
 interface IDoctorContextState {
-  values: IDoctorFormValues;
-  errors: IDoctorFormErrors;
+  values: IUserFormValues;
+  errors: IUserFormErrors;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleDynamicInputChange: (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -74,6 +77,7 @@ const defaultState: IDoctorContextState = {
     gender: "male",
     password: "",
     consultationFee: "",
+    discount: "",
     sharePrice: "",
     awards: "",
     expertise: "",
@@ -142,6 +146,7 @@ const defaultState: IDoctorContextState = {
     gender: "",
     password: "",
     consultationFee: "",
+    discount: "",
     qualifications: "",
     awards: "",
     expertise: "",
@@ -161,15 +166,19 @@ const defaultState: IDoctorContextState = {
     name: string,
     itemToAdd: string | { question: string; answer: string }
   ) => {},
-  handleTimeInputChange: (newValue: Date | string | null, name: string, index:number) => {},
+  handleTimeInputChange: (
+    newValue: Date | string | null,
+    name: string,
+    index: number
+  ) => {},
   handleBiographySubmit: () => {},
 };
 
-export const DoctorFormContext = createContext<IDoctorContextState>(defaultState);
+export const UserFormContext = createContext<IDoctorContextState>(defaultState);
 
-export const DoctorFormContextProvider: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
+export const UserFormContextProvider: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
 
-  const [values, setValues] = useState<IDoctorFormValues>(defaultState.values);
+  const [values, setValues] = useState<IUserFormValues>(defaultState.values);
   const { errors, validate } = useValidation(values);
 
   //* to handleInput Change
@@ -248,10 +257,10 @@ export const DoctorFormContextProvider: React.FC = ({ children }: React.PropsWit
   };
 
   return (
-    <DoctorFormContext.Provider value={userContextData}>
+    <UserFormContext.Provider value={userContextData}>
       {children}
-    </DoctorFormContext.Provider>
+    </UserFormContext.Provider>
   )
 }
 
-export default DoctorFormContextProvider;
+export default UserFormContextProvider;

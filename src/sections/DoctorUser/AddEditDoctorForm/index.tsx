@@ -10,7 +10,7 @@ import DoctorQualificationForm from './DoctorQualificationForm';
 import DoctorServicesForm from './DoctorServicesForm';
 import DoctorTimingForm from './DoctorTimingTable';
 import DoctorFAQForm from './DoctorFAQForm';
-import {DoctorFormContext} from '../../../context/DoctorFormContext';
+import {UserFormContext} from '../../../context/UserFormContext';
 
 //* Add data/utils import below this comment
 import {
@@ -52,7 +52,7 @@ const stepContent = [
 const AddEditDoctorForm: React.FC = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set<number>());
-    const {handleBiographySubmit} = useContext(DoctorFormContext);
+    const {handleBiographySubmit} = useContext(UserFormContext);
     const stepAction = [
       handleBiographySubmit,
       () => {

@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import DesktopTimePicker from "@mui/lab/DesktopTimePicker";
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import { DoctorFormContext } from "../../../context/DoctorFormContext";
+import { UserFormContext } from "../../../context/UserFormContext";
 //* Add data/utils import below this comment
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
@@ -20,7 +20,7 @@ import InputField from "../../../components/InputFields";
 
 const StartTimeCellRenderer: React.FC<ICellRendererParams> = (props) => {
   const cellValue = props.data;
-  const { values, handleTimeInputChange } = useContext(DoctorFormContext);
+  const { values, handleTimeInputChange } = useContext(UserFormContext);
   var index = values.timings.findIndex(timing => timing.day === cellValue.day);
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -46,7 +46,7 @@ const StartTimeCellRenderer: React.FC<ICellRendererParams> = (props) => {
 
 const AvalaibleCellRenderer: React.FC<ICellRendererParams> = (props) => {
     const cellValue = props.data;
-    const { values, handleDynamicInputChange } = useContext(DoctorFormContext);
+    const { values, handleDynamicInputChange } = useContext(UserFormContext);
     var index = values.timings.findIndex(timing => timing.day === cellValue.day);
     return (
       <Checkbox
@@ -59,7 +59,7 @@ const AvalaibleCellRenderer: React.FC<ICellRendererParams> = (props) => {
 
 const EndTimeCellRenderer: React.FC<ICellRendererParams> = (props) => {
   const cellValue = props.data;
-  const { values, handleTimeInputChange } = useContext(DoctorFormContext);
+  const { values, handleTimeInputChange } = useContext(UserFormContext);
   var index = values.timings.findIndex(timing => timing.day === cellValue.day);
 
   return (
@@ -85,7 +85,7 @@ const EndTimeCellRenderer: React.FC<ICellRendererParams> = (props) => {
 };
 const DurationCellRenderer: React.FC<ICellRendererParams> = (props) => {
   const cellValue = props.data;
-  const { values, handleDynamicInputChange } = useContext(DoctorFormContext);
+  const { values, handleDynamicInputChange } = useContext(UserFormContext);
   var index = values.timings.findIndex(timing => timing.day === cellValue.day);
   return (
     <>
@@ -108,7 +108,7 @@ const DurationCellRenderer: React.FC<ICellRendererParams> = (props) => {
 };
 
 const DoctorTimingForm: React.FC = () => {
-  const { values } = useContext(DoctorFormContext);
+  const { values } = useContext(UserFormContext);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [gridApi, setGridApi] = useState<GridApi>();

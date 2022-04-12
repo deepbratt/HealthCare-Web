@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from "uuid";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -10,7 +11,6 @@ import { SearchRounded } from '@mui/icons-material';
 //* Add data/utils import below this comment
 import { IDoctor } from '../../utils/interfaces/doctor.interface';
 import { ADD, DOCTOR } from '../../utils/langauge/en/buttonLabels';
-import { useNavigate } from 'react-router-dom';
 import { paths } from '../../routes/paths';
 
 const DoctorUser: React.FC = () => {
