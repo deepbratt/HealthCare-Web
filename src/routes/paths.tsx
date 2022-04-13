@@ -1,4 +1,6 @@
+import OPDPage from "../pages/opd";
 import UsersPage from "../pages/users";
+import AppointmentContextProvider from "../context/AppointmentFormContext";
 import UserFormContextProvider from "../context/UserFormContext";
 import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
 import AddEditStaffForm from "../sections/StaffUser/AddEditStaffForm";
@@ -7,6 +9,7 @@ import AddEditAccountantForm from "../sections/AccountantUser/AddEditAccountantF
 
 export const paths = {
   dashboard: "/",
+  opd: "/opd",
   users: "/users",
   addEditDoctor: "/add-edit-doctor/",
   addEditStaff: "/add-edit-staff/",
@@ -18,6 +21,7 @@ export const paths = {
 
 export const routes = {
   dashboard: "/",
+  opd: "/opd",
   users: "/users",
   addEditDoctor: "/add-edit-doctor/",
   addEditStaff: "/add-edit-staff/",
@@ -33,6 +37,15 @@ export const privateRoutes = {
     path: routes.dashboard,
     // TODO: UPDATE component later
     component: <h1>Dashboard</h1>,
+  },
+  [paths.opd]: {
+    name: "OPD",
+    path: routes.opd,
+    component: (
+      <AppointmentContextProvider>
+        <OPDPage />
+      </AppointmentContextProvider>
+    ),
   },
   [paths.users]: {
     name: "Users",

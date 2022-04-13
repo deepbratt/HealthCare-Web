@@ -33,4 +33,7 @@ export const fieldNames = {
   duration: "duration",
   available: "available",
   faqs: "faqs",
+  patientID: "patientID",
+  doctorID: "doctorID",
+  appointmentTime: "appointmentTime"
 };

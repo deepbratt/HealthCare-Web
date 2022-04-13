@@ -7,7 +7,7 @@ export interface INavItem {
 
 export const SECTIONS_DATA: INavItem[] = [
   { label: "DASHBOARD", path: paths.dashboard },
-  { label: "OPD", path: paths.dashboard },
+  { label: "OPD", path: paths.opd },
   { label: "PATIENTS", path: paths.dashboard },
   { label: "USERS", path: paths.users },
   { label: "PREFERENCES", path: paths.dashboard },
