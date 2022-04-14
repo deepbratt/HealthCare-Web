@@ -10,7 +10,7 @@ const Layout: React.FC<ILayoutProps> = () => {
   return (
     <>
       <Header />
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", margin: "50px" }}>
         <Outlet />
       </Box>
     </>
