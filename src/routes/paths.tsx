@@ -1,8 +1,8 @@
+import OPDPage from "../pages/opd";
 import UsersPage from "../pages/users";
+import AppointmentContextProvider from "../context/AppointmentFormContext";
 import PatientsPage from "../pages/patients";
 import PatientDetails from "../pages/patientDetails";
-import DoctorFormContextProvider from "../context/DoctorFormContext";
-import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
 import EditProfile from "../pages/patientDetails/sidebarMenu/EditProfile";
 import AddInvoice from "../pages/patientDetails/sidebarMenu/AddInvoice";
 import AddToken from "../pages/patientDetails/sidebarMenu/AddToken";
@@ -16,6 +16,7 @@ import AddEditAccountantForm from "../sections/AccountantUser/AddEditAccountantF
 
 export const paths = {
   dashboard: "/",
+  opd: "/opd",
   users: "/users",
   patients: "/patients",
   patientDetails: "/patient-details",
@@ -33,8 +34,13 @@ export const paths = {
 };
 
 export const routes = {
-  dashboard: '/',
-  users: '/users',
+  dashboard: "/",
+  opd: "/opd",
+  users: "/users",
+  addEditDoctor: "/add-edit-doctor/",
+  addEditStaff: "/add-edit-staff/",
+  addEditAdmin: "/add-edit-admin/",
+  addEditAccountant: "/add-edit-accountant/",
   patients: "/patients",
   patientDetails: "/patient-details/:id",
   patientEditProfile: "/patient/edit-profile/:id",
@@ -42,10 +48,6 @@ export const routes = {
   patientAddToken: "/patient/add-token/:id",
   patientAddFile: "/patient/add-file/:id",
   patientInvoiceHistory: "/patient/invoice-history/:id",  
-  addEditDoctor: "/add-edit-doctor/",  
-  addEditStaff: "/add-edit-staff/",
-  addEditAdmin: "/add-edit-admin/",
-  addEditAccountant: "/add-edit-accountant/",
   login: "/login",
   error: "*",
 };
@@ -56,6 +58,15 @@ export const privateRoutes = {
     path: routes.dashboard,
     // TODO: UPDATE component later
     component: <h1>Dashboard</h1>,
+  },
+  [paths.opd]: {
+    name: "OPD",
+    path: routes.opd,
+    component: (
+      <AppointmentContextProvider>
+        <OPDPage />
+      </AppointmentContextProvider>
+    ),
   },
   [paths.users]: {
     name: "Users",
