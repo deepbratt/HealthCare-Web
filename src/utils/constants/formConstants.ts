@@ -9,6 +9,8 @@ export const messages = {
 
 export const fieldNames = {
   name: "name",
+  firstName: "firstName",
+  lastName: "lastName",
   email: "email",
   gender: "gender",
   phone: "phone",
@@ -29,8 +31,14 @@ export const fieldNames = {
   question: "question",
   startTime: "startTime",
   endTime: "endTime",
+  startDate: "startDate",
+  endDate: "endDate",
+  comments: "comments",
   day: "day",
   duration: "duration",
   available: "available",
   faqs: "faqs",
+  patientID: "patientID",
+  doctorID: "doctorID",
+  appointmentTime: "appointmentTime"
 };

@@ -1,3 +1,6 @@
+export const LEAVE = "LEAVE";
+export const PATIENT = "PATIENT";
+export const APPOINTMENT = "APPOINTMENT";
 export const DOCTOR = "DOCTOR";
 export const STAFF = "STAFF";
 export const ADMIN = "ADMIN";
