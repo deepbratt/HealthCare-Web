@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { Box, Button, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from "@mui/material";
+import InputField from "../../components/InputFields";
+import { Box, Button, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
+//* Add data/utils import below this comment
 import { IPatientsData } from "../../utils/interfaces/user.interface";
+import { fieldNames } from "../../utils/constants/formConstants";
+import { ADD, PATIENT } from "../../utils/langauge/en/buttonLabels";
 
 const AddPatientForm: React.FC = () => {
   const defaultData: IPatientsData = {
@@ -12,7 +16,7 @@ const AddPatientForm: React.FC = () => {
     lastName: '',
     gender: '',
     phone: '',
-    dob: '',
+    dob: null,
   }
   const [newPatient, setNewPatient] = useState<IPatientsData>(defaultData);
 
@@ -39,40 +43,34 @@ const AddPatientForm: React.FC = () => {
     <Box
       component="form"
       sx={{
-        marginTop: '1rem',
+        marginTop: "1rem",
       }}
       autoComplete="off"
     >
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <TextField
-            variant="outlined"
-            name="firstName"
-            id="firstName"
+          <InputField
+            id="patient-first-name"
             label="First Name"
-            fullWidth
+            name={fieldNames.firstName}
             value={newPatient.firstName}
             onChange={handleChange}
           />
         </Grid>
         <Grid item xs={6}>
-          <TextField
-            variant="outlined"
-            name="lastName"
-            id="lastName"
+          <InputField
+            id="patient-last-name"
             label="Last Name"
-            fullWidth
+            name={fieldNames.lastName}
             value={newPatient.lastName}
             onChange={handleChange}
           />
         </Grid>
         <Grid item xs={6}>
-          <TextField
-            variant="outlined"
-            name="phone"
-            id="phone"
+          <InputField
+            id="patient-phone"
             label="Phone"
-            fullWidth
+            name={fieldNames.phone}
             value={newPatient.phone}
             onChange={handleChange}
           />
@@ -83,7 +81,7 @@ const AddPatientForm: React.FC = () => {
               label="Date Of Birth"
               value={newPatient.dob}
               onChange={handleDateChange}
-              renderInput={(params) => <TextField {...params} />}
+              renderInput={(params) => <InputField {...params} />}
             />
           </LocalizationProvider>
         </Grid>
@@ -91,11 +89,15 @@ const AddPatientForm: React.FC = () => {
           <FormLabel id="demo-controlled-radio-buttons-group">Gender</FormLabel>
           <RadioGroup
             row
-            name="gender"
+            name={fieldNames.gender}
             value={newPatient.gender}
             onChange={handleChange}
           >
-            <FormControlLabel value="female" control={<Radio />} label="Female" />
+            <FormControlLabel
+              value="female"
+              control={<Radio />}
+              label="Female"
+            />
             <FormControlLabel value="male" control={<Radio />} label="Male" />
             <FormControlLabel value="other" control={<Radio />} label="Other" />
           </RadioGroup>
@@ -106,15 +108,12 @@ const AddPatientForm: React.FC = () => {
           justifyContent="flex-end"
           alignContent="center"
           sx={{
-            padding: '1rem',
-            textAlign: 'right'
+            padding: "1rem",
+            textAlign: "right",
           }}
         >
-          <Button
-            variant="contained"
-            onClick={handleSubmit}
-          >
-            ADD PATIENT
+          <Button variant="contained" onClick={handleSubmit}>
+            {ADD} {PATIENT}
           </Button>
         </Grid>
       </Grid>

@@ -16,7 +16,7 @@ export interface IPatientsData {
   lastName: string;
   gender: string;
   phone: string | number;
-  dob: string;
+  dob: string | null;
 }
 
 export interface IUserContext {
