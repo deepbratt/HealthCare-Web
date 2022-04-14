@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { IUserData, IUserContext } from '../utils/interfaces/user.interface'
+import patientsData from './patientsData'
 
 const UserContext = createContext<IUserContext>({})
 
@@ -31,7 +32,8 @@ export const UserProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
 
 
   const userContextData: IUserContext = {
-    userData
+    userData,
+    patientsData
   }
 
   return (

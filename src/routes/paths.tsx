@@ -1,4 +1,13 @@
 import UsersPage from "../pages/users";
+import PatientsPage from "../pages/patients";
+import PatientDetails from "../pages/patientDetails";
+import DoctorFormContextProvider from "../context/DoctorFormContext";
+import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
+import EditProfile from "../pages/patientDetails/sidebarMenu/EditProfile";
+import AddInvoice from "../pages/patientDetails/sidebarMenu/AddInvoice";
+import AddToken from "../pages/patientDetails/sidebarMenu/AddToken";
+import AddFile from "../pages/patientDetails/sidebarMenu/AddFile";
+import InvoiceHistory from "../pages/patientDetails/sidebarMenu/InvoiceHistory";
 import UserFormContextProvider from "../context/UserFormContext";
 import AddEditDoctorForm from "../sections/DoctorUser/AddEditDoctorForm";
 import AddEditStaffForm from "../sections/StaffUser/AddEditStaffForm";
@@ -8,6 +17,13 @@ import AddEditAccountantForm from "../sections/AccountantUser/AddEditAccountantF
 export const paths = {
   dashboard: "/",
   users: "/users",
+  patients: "/patients",
+  patientDetails: "/patient-details",
+  patientEditProfile: "/patient/edit-profile/",
+  patientAddInvoice: "/patient/add-invoice/",
+  patientAddToken: "/patient/add-token/",
+  patientAddFile: "/patient/add-file/",
+  patientInvoiceHistory: "/patient/invoice-history/",
   addEditDoctor: "/add-edit-doctor/",
   addEditStaff: "/add-edit-staff/",
   addEditAdmin: "/add-edit-admin/",
@@ -17,9 +33,16 @@ export const paths = {
 };
 
 export const routes = {
-  dashboard: "/",
-  users: "/users",
-  addEditDoctor: "/add-edit-doctor/",
+  dashboard: '/',
+  users: '/users',
+  patients: "/patients",
+  patientDetails: "/patient-details/:id",
+  patientEditProfile: "/patient/edit-profile/:id",
+  patientAddInvoice: "/patient/add-invoice/:id",
+  patientAddToken: "/patient/add-token/:id",
+  patientAddFile: "/patient/add-file/:id",
+  patientInvoiceHistory: "/patient/invoice-history/:id",  
+  addEditDoctor: "/add-edit-doctor/",  
   addEditStaff: "/add-edit-staff/",
   addEditAdmin: "/add-edit-admin/",
   addEditAccountant: "/add-edit-accountant/",
@@ -38,6 +61,41 @@ export const privateRoutes = {
     name: "Users",
     path: routes.users,
     component: <UsersPage />,
+  },
+  [paths.patients]: {
+    name: "Patients",
+    path: routes.patients,
+    component: <PatientsPage />,
+  },
+  [paths.patientDetails]: {
+    name: "Patient Details",
+    path: routes.patientDetails,
+    component: <PatientDetails />,
+  },
+  [paths.patientEditProfile]: {
+    name: "Patient EditProfile",
+    path: routes.patientEditProfile,
+    component: <EditProfile />,
+  },
+  [paths.patientAddInvoice]: {
+    name: "Patient AddInvoice",
+    path: routes.patientAddInvoice,
+    component: <AddInvoice />,
+  },
+  [paths.patientAddToken]: {
+    name: "Patient AddToken",
+    path: routes.patientAddToken,
+    component: <AddToken />,
+  },
+  [paths.patientAddFile]: {
+    name: "Patient AddFile",
+    path: routes.patientAddFile,
+    component: <AddFile/>,
+  },
+  [paths.patientInvoiceHistory]: {
+    name: "Patient InvoiceHistory",
+    path: routes.patientInvoiceHistory,
+    component: <InvoiceHistory />,
   },
   [paths.addEditDoctor]: {
     name: "Add Edit Doctor",

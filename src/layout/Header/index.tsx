@@ -59,9 +59,9 @@ const Header: React.FC = () => {
       </Box>
       {isLoggedIn && <NavBar />}
       {/* // TODO: Remove login button below before commit */}
-      <Button color="inherit" onClick={() => setIsLoggedIn(!isLoggedIn)}>
+      {/* <Button color="inherit" onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}
-      </Button>
+      </Button> */}
     </>
   );
 };

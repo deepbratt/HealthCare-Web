@@ -9,6 +9,17 @@ export interface IUserData {
   banned: boolean;
 }
 
+export interface IPatientsData {
+  _id: string;
+  mrNum: string;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  phone: string | number;
+  dob: string;
+}
+
 export interface IUserContext {
   userData?: IUserData;
+  patientsData?: IPatientsData[];
 }
