@@ -1,3 +1,4 @@
+export const LEAVE = "LEAVE";
 export const PATIENT = "PATIENT";
 export const APPOINTMENT = "APPOINTMENT";
 export const DOCTOR = "DOCTOR";
@@ -26,5 +27,4 @@ export const RESET = "RESET";
 export const OPTIONAL = "OPTIONAL";
 export const FINISH = "FINISH";
 export const NEXT = "NEXT";
-export const LEAVE = "LEAVE";
 

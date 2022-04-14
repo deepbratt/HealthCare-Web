@@ -9,12 +9,13 @@ import InputAdornment from "@mui/material/InputAdornment";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AddEditAppointmentForm from '../../sections/opd/AddEditAppointment';
+import AddEditDoctorLeaveForm from '../../sections/DoctorUser/DoctorLeaveForm';
 import AppointmentsListingTable from '../../sections/opd/AppointmentsListingTable';
 import { SearchRounded } from '@mui/icons-material';
 //* Add data/utils import below this comment
 import { IAppointment } from '../../utils/interfaces/appointment.interface';
 import { ADD, APPOINTMENT, LEAVE } from '../../utils/langauge/en/buttonLabels';
-import AddEditAppointmentForm from '../../sections/opd/AddEditAppointment';
 
 const OPDPage: React.FC = () => {
 
@@ -159,9 +160,10 @@ const OPDPage: React.FC = () => {
               open={leaveModalOpen}
               handleClose={handleleaveModalClose}
               title={`${ADD} ${LEAVE}`}
+              fullWidth
+              maxWidth="lg"
             >
-              {/* // TODO: ADD DOCTOR LEAVE FORM HERE  */}
-              <h1>Add New DOCTOR APPOINTMENT Form Here</h1>
+              <AddEditDoctorLeaveForm />
             </DialogBox>
           </Box>
         </Grid>

@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react';
 import {v4 as uuidv4} from "uuid";
 import useValidation from '../utils/hooks/useValidation';
-import { IAppointment } from '../utils/interfaces/appointment.interface';
 import { IDoctor } from '../utils/interfaces/doctor.interface';
+import { DateRange } from "materialui-daterange-picker";
+import { IAppointment } from '../utils/interfaces/appointment.interface';
 
 export interface IAvaialableSlots {
   _id: string;
@@ -15,6 +16,9 @@ export interface IAppointmentFormValues {
   patientID: string;
   doctorID: string;  
   appointmentTime: string;
+  startDate: string;
+  endDate: string;
+  comments: string;
 }
 
 export interface IAppointmentFormErrors {
@@ -29,6 +33,7 @@ interface IDoctorContextState {
   doctorsList: IDoctor[];
   availableSlots: IAvaialableSlots[];
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleDateRangeChange: (newValue: DateRange) => void,
   handleSubmit: () => void;
 }
 
@@ -36,7 +41,10 @@ const defaultState: IDoctorContextState = {
   values: {
     patientID: "",
     doctorID: "",
-    appointmentTime: ""
+    appointmentTime: "",
+    startDate: "",
+    endDate: "",
+    comments: ""
   },
   errors: {
     patientID: "",
@@ -128,6 +136,7 @@ const defaultState: IDoctorContextState = {
     end: "12:00"
   }],
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
+  handleDateRangeChange: (newValue: DateRange) => {},
   handleSubmit: () => {},
 };
 
@@ -157,6 +166,16 @@ export const AppointmentFormContextProvider: React.FC = ({ children }: React.Pro
     validate({ [name]: value });
   };
 
+  const handleDateRangeChange = (newValue: DateRange) => {
+    if (newValue.startDate && newValue.endDate) {
+      setValues({
+        ...values,
+        startDate: newValue.startDate.toString(),
+        endDate: newValue.endDate.toDateString(),
+      });
+    }
+  };
+
 
   //* to handle form Submit
   const handleSubmit = () => {
@@ -170,6 +189,7 @@ export const AppointmentFormContextProvider: React.FC = ({ children }: React.Pro
     doctorsList,
     availableSlots,
     handleInputChange,
+    handleDateRangeChange,
     handleSubmit,
   };
 

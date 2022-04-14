@@ -10,6 +10,8 @@ interface DialogBoxProps {
   handleClose: () => void;
   title: string;
   children: React.ReactNode;
+  fullWidth?: boolean;
+  maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 }
 
 //*  Pass dialog box content as a children
@@ -18,11 +20,18 @@ const DialogBox: React.FC<DialogBoxProps> = ({
     handleClose,
     title,
     children,
+    fullWidth,
+    maxWidth,
 }) => {
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      fullWidth={fullWidth}
+      maxWidth={maxWidth}
+    >
       <DialogTitle>
-        <Typography variant="h6">{title}</Typography>
+        <Typography>{title}</Typography>
       </DialogTitle>
       <Divider />
       <DialogContent>{children}</DialogContent>

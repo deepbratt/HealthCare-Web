@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import MenuItem from '@mui/material/MenuItem';
 import { AppointmentFormContext, IAvaialableSlots } from "../../../context/AppointmentFormContext";
